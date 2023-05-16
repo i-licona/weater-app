@@ -1,0 +1,23 @@
+<div class="p-6" *ngIf="weather.success">
+  <h5 class="animate__animated animate__bounceIn mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+    {{  weather.name }} , {{ weather.country }}
+  </h5>
+  <div class="animate__animated animate__bounceIn flex flex-col">
+    <img [src]="weather.condition.icon" class="self-center">
+  </div>
+  <p class="animate__animated animate__bounceIn mb-4 text-base text-neutral-600 dark:text-neutral-200">
+    {{ weather.condition.text }}
+  </p>
+  <div class="animate__animated animate__bounceIn border-t-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
+    {{ weather.temp_c }} C    
+  </div>
+</div>
+
+<div class="p-6 animate__animated animate__bounceIn" *ngIf="!weather.success">
+  <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+    No results
+  </h5>
+  <div class="flex flex-col text-white" *ngIf="weather.error != null">
+    {{ errorMessage }}
+  </div>
+</div>
